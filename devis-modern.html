@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de Devis - MRACE Transport</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="modern-style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("-fojXBCOifv3oqmQi");
+        })();
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.png" alt="MRACE Transport Logo">
+                    <h1>MRACE Transport</h1>
+                </div>
+                <button class="nav-toggle">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="prestations.html">Prestations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="devis.html">Devis</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="section-title">
+                <h2>Demande de Devis</h2>
+                <div class="underline"></div>
+                <p>Remplissez le formulaire ci-dessous pour obtenir un devis personnalisé pour vos événements.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="form-container fade-in">
+                <div class="form-steps">
+                    <div class="step active" id="step1-indicator">1</div>
+                    <div class="step" id="step2-indicator">2</div>
+                    <div class="step" id="step3-indicator">3</div>
+                </div>
+                
+                <form id="devisForm">
+                    <div class="step-content active" id="step1">
+                        <h3>Informations personnelles</h3>
+                        <p>Parlez-nous de vous pour personnaliser votre devis</p>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name"><i class="fas fa-user"></i> Nom</label>
+                                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname"><i class="fas fa-user"></i> Prénom</label>
+                                <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                                <input type="email" id="email" name="email" placeholder="Votre email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone"><i class="fas fa-phone"></i> Téléphone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Votre numéro de téléphone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="company"><i class="fas fa-building"></i> Société (optionnel)</label>
+                            <input type="text" id="company" name="company" placeholder="Nom de votre société">
+                        </div>
+                        <div class="form-navigation">
+                            <div></div>
+                            <button type="button" class="btn" id="next1">
+                                Suivant <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="step-content" id="step2">
+                        <h3>Détails de la prestation</h3>
+                        <p>Sélectionnez les services dont vous avez besoin</p>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-list-check"></i> Services requis</label>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="transport" name="services" value="transport">
+                                    <label for="transport">Transport événementiel</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="montage" name="services" value="montage">
+                                    <label for="montage">Montage/Démontage</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="monitorat" name="services" value="monitorat">
+                                    <label for="monitorat">Assistance Monitorat</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="grue" name="services" value="grue">
+                                    <label for="grue">CACES Grue Auxiliaire</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="adr" name="services" value="adr">
+                                    <label for="adr">ADR Citerne Étendue</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="start-date"><i class="fas fa-calendar"></i> Date de début</label>
+                                <input type="date" id="start-date" name="start-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="end-date"><i class="fas fa-calendar-check"></i> Date de fin</label>
+                                <input type="date" id="end-date" name="end-date" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="location"><i class="fas fa-map-marker-alt"></i> Lieu de l'événement</label>
+                            <input type="text" id="location" name="location" placeholder="Adresse ou ville de l'événement" required>
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-light" id="prev2">
+                                <i class="fas fa-arrow-left"></i> Précédent
+                            </button>
+                            <button type="button" class="btn" id="next2">
+                                Suivant <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="step-content" id="step3">
+                        <h3>Informations complémentaires</h3>
+                        <p>Ajoutez des détails pour affiner votre demande</p>
+                        
+                        <div class="form-group">
+                            <label for="details"><i class="fas fa-align-left"></i> Détails supplémentaires</label>
+                            <textarea id="details" name="details" rows="5" placeholder="Précisez vos besoins spécifiques, contraintes ou questions..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="how-found"><i class="fas fa-search"></i> Comment avez-vous connu mes services ?</label>
+                            <select id="how-found" name="how-found">
+                                <option value="">Sélectionnez une option</option>
+                                <option value="recommendation">Recommandation</option>
+                                <option value="search">Moteur de recherche</option>
+                                <option value="social">Réseaux sociaux</option>
+                                <option value="event">Événement</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande de devis.</label>
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-light" id="prev3">
+                                <i class="fas fa-arrow-left"></i> Précédent
+                            </button>
+                            <button type="submit" class="btn">
+                                <i class="fas fa-paper-plane"></i> Envoyer ma demande
+                            </button>
+                        </div>
+                        <div id="formStatus" class="form-status"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MRACE Transport</h3>
+                    <p>Chauffeur poids lourd freelance spécialisé dans l'événementiel sportif automobile.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Mathieu Lasson</p>
+                    <p>Tél: 07 66 47 42 39</p>
+                    <p>Email: Mathieulasson@mracetransport.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="prestations.html">Prestations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="devis.html">Demande de devis</a></li>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MRACE Transport. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                });
+            }
+            
+            // Scroll animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 50) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkFade);
+            checkFade();
+            
+            // Multi-step form
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const step3 = document.getElementById('step3');
+            
+            const step1Indicator = document.getElementById('step1-indicator');
+            const step2Indicator = document.getElementById('step2-indicator');
+            const step3Indicator = document.getElementById('step3-indicator');
+            
+            const next1 = document.getElementById('next1');
+            const next2 = document.getElementById('next2');
+            const prev2 = document.getElementById('prev2');
+            const prev3 = document.getElementById('prev3');
+            
+            if (next1) {
+                next1.addEventListener('click', function() {
+                    step1.classList.remove('active');
+                    step2.classList.add('active');
+                    step2Indicator.classList.add('active');
+                });
+            }
+            
+            if (next2) {
+                next2.addEventListener('click', function() {
+                    step2.classList.remove('active');
+                    step3.classList.add('active');
+                    step3Indicator.classList.add('active');
+                });
+            }
+            
+            if (prev2) {
+                prev2.addEventListener('click', function() {
+                    step2.classList.remove('active');
+                    step1.classList.add('active');
+                    step2Indicator.classList.remove('active');
+                });
+            }
+            
+            if (prev3) {
+                prev3.addEventListener('click', function() {
+                    step3.classList.remove('active');
+                    step2.classList.add('active');
+                    step3Indicator.classList.remove('active');
+                });
+            }
+            
+            // Form submission
+            const devisForm = document.getElementById('devisForm');
+            if (devisForm) {
+                devisForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Récupérer les services sélectionnés
+                    const servicesChecked = Array.from(document.querySelectorAll('input[name="services"]:checked'))
+                        .map(checkbox => checkbox.value)
+                        .join(', ');
+                    
+                    // Préparer les paramètres du template
+                    const templateParams = {
+                        name: document.getElementById('name').value,
+                        firstname: document.getElementById('firstname').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        company: document.getElementById('company').value || 'Non spécifié',
+                        services: servicesChecked || 'Aucun service sélectionné',
+                        'start-date': document.getElementById('start-date').value,
+                        'end-date': document.getElementById('end-date').value,
+                        location: document.getElementById('location').value,
+                        details: document.getElementById('details').value || 'Aucun détail fourni',
+                        'how-found': document.getElementById('how-found').value || 'Non spécifié'
+                    };
+                    
+                    // Afficher un message de chargement
+                    const submitBtn = document.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = 'Envoi en cours... <span class="loading"></span>';
+                    submitBtn.disabled = true;
+                    
+                    // Créer un élément pour afficher le statut
+                    let formStatus;
+                    if (!document.getElementById('formStatus')) {
+                        formStatus = document.createElement('div');
+                        formStatus.id = 'formStatus';
+                        formStatus.className = 'form-status';
+                        const formNav = document.querySelector('.form-navigation');
+                        formNav.parentNode.insertBefore(formStatus, formNav.nextSibling);
+                    } else {
+                        formStatus = document.getElementById('formStatus');
+                    }
+                    
+                    // Envoyer l'email via EmailJS
+                    emailjs.send('service_yehfv0c', 'template_p0pishj', templateParams)
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            formStatus.textContent = 'Votre demande de devis a été envoyée avec succès. Je vous recontacterai dans les plus brefs délais pour discuter de votre projet.';
+                            formStatus.className = 'form-status success';
+                            devisForm.reset();
+                            
+                            // Réinitialiser le formulaire à l'étape 1
+                            step3.classList.remove('active');
+                            step1.classList.add('active');
+                            step2Indicator.classList.remove('active');
+                            step3Indicator.classList.remove('active');
+                            
+                            // Réinitialiser le bouton
+                            submitBtn.innerHTML = originalBtnText;
+                            submitBtn.disabled = false;
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            formStatus.textContent = 'Une erreur est survenue lors de l\'envoi de votre demande de devis. Veuillez réessayer ou me contacter directement par téléphone.';
+                            formStatus.className = 'form-status error';
+                            
+                            // Réinitialiser le bouton
+                            submitBtn.innerHTML = originalBtnText;
+                            submitBtn.disabled = false;
+                        });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

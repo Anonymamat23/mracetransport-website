@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestations - MRACE Transport</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques à la page prestations */
+        .prestation-section {
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .prestation-section:last-child {
+            border-bottom: none;
+        }
+        
+        .prestation-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .prestation-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .prestation-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .prestation-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        .prestation-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .prestation-text ul {
+            list-style: none;
+            margin-left: 0;
+            margin-top: 20px;
+        }
+        
+        .prestation-text ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .prestation-text ul li:before {
+            content: "•";
+            color: var(--primary);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        @media (max-width: 768px) {
+            .prestation-content {
+                flex-direction: column;
+            }
+            
+            .prestation-image {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.png" alt="MRACE Transport Logo">
+                    <h1>MRACE Transport</h1>
+                </div>
+                <button class="nav-toggle">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="prestations.html">Prestations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="devis.html">Devis</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes Prestations</h2>
+                <div class="underline"></div>
+                <p>Découvrez l'ensemble des services que je propose pour répondre à vos besoins en événementiel sportif automobile.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="prestation-section" id="transport">
+        <div class="container">
+            <div class="prestation-content">
+                <div class="prestation-image fade-in">
+                    <img src="images/transport.jpg" alt="Transport événementiel">
+                </div>
+                <div class="prestation-text">
+                    <h3 class="fade-in">Transport événementiel</h3>
+                    <p class="fade-in delay-1">Spécialisé dans le transport pour les événements sportifs automobiles, je propose des services de conduite de poids lourds adaptés aux besoins spécifiques du secteur.</p>
+                    <ul class="fade-in delay-2">
+                        <li>Transport de matériel et d'équipements sur les circuits</li>
+                        <li>Acheminement de véhicules de compétition</li>
+                        <li>Livraison de structures et équipements événementiels</li>
+                        <li>Transport inter-circuits lors des championnats</li>
+                        <li>Flexibilité horaire adaptée aux contraintes des événements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prestation-section bg-gray" id="montage">
+        <div class="container">
+            <div class="prestation-content">
+                <div class="prestation-text">
+                    <h3 class="fade-in">Montage/Démontage</h3>
+                    <p class="fade-in delay-1">Installation et démontage de structures pour événements sportifs, stands, paddocks et équipements de course.</p>
+                    <ul class="fade-in delay-2">
+                        <li>Montage de stands et d'espaces d'exposition</li>
+                        <li>Installation de paddocks et zones techniques</li>
+                        <li>Mise en place d'équipements de chronométrage</li>
+                        <li>Aménagement d'espaces VIP et d'accueil</li>
+                        <li>Démontage rapide et efficace post-événement</li>
+                    </ul>
+                </div>
+                <div class="prestation-image fade-in delay-3">
+                    <img src="images/montage.jpg" alt="Montage/Démontage">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prestation-section" id="monitorat">
+        <div class="container">
+            <div class="prestation-content">
+                <div class="prestation-image fade-in">
+                    <img src="images/monitorat.jpg" alt="Assistance Monitorat">
+                </div>
+                <div class="prestation-text">
+                    <h3 class="fade-in">Assistance Monitorat</h3>
+                    <p class="fade-in delay-1">Assistance technique et logistique pour les moniteurs de sport automobile grâce à ma qualification BPJEPS Sport Automobile.</p>
+                    <ul class="fade-in delay-2">
+                        <li>Support aux moniteurs lors des sessions de pilotage</li>
+                        <li>Assistance technique sur circuit</li>
+                        <li>Préparation et maintenance des véhicules d'instruction</li>
+                        <li>Coordination logistique des sessions de formation</li>
+                        <li>Accompagnement des stagiaires en formation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prestation-section bg-gray" id="grue">
+        <div class="container">
+            <div class="prestation-content">
+                <div class="prestation-text">
+                    <h3 class="fade-in">CACES Grue Auxiliaire</h3>
+                    <p class="fade-in delay-1">Certifié pour l'utilisation de grues auxiliaires, je propose des services de manutention spécialisée pour vos événements et besoins logistiques.</p>
+                    <ul class="fade-in delay-2">
+                        <li>Chargement et déchargement sécurisé de matériel</li>
+                        <li>Manipulation d'équipements lourds</li>
+                        <li>Installation précise de structures</li>
+                        <li>Positionnement de véhicules d'exposition</li>
+                        <li>Manutention d'éléments techniques sur site</li>
+                    </ul>
+                </div>
+                <div class="prestation-image fade-in delay-3">
+                    <img src="images/grue.jpg" alt="CACES Grue Auxiliaire">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prestation-section" id="adr">
+        <div class="container">
+            <div class="prestation-content">
+                <div class="prestation-image fade-in">
+                    <img src="images/adr.jpg" alt="ADR Citerne Étendue">
+                </div>
+                <div class="prestation-text">
+                    <h3 class="fade-in">ADR Citerne Étendue</h3>
+                    <p class="fade-in delay-1">Titulaire de l'ADR citerne étendue incluant les produits pétroliers, je suis habilité à transporter des matières dangereuses en toute sécurité.</p>
+                    <ul class="fade-in delay-2">
+                        <li>Transport de carburants pour événements sportifs</li>
+                        <li>Acheminement de produits dangereux selon les normes</li>
+                        <li>Gestion sécurisée des matières dangereuses</li>
+                        <li>Respect strict des réglementations ADR</li>
+                        <li>Transport de produits pétroliers pour ravitaillement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2 class="fade-in">Besoin d'un service sur mesure ?</h2>
+            <p class="fade-in delay-1">Contactez-moi pour discuter de vos besoins spécifiques ou demandez un devis personnalisé.</p>
+            <div class="cta-buttons fade-in delay-2">
+                <a href="contact.html" class="btn">Me contacter</a>
+                <a href="devis.html" class="btn btn-light">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MRACE Transport</h3>
+                    <p>Chauffeur poids lourd freelance spécialisé dans l'événementiel sportif automobile.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Mathieu Lasson</p>
+                    <p>Tél: 07 66 47 42 39</p>
+                    <p>Email: Mathieulasson@mracetransport.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="prestations.html">Prestations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="devis.html">Demande de devis</a></li>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MRACE Transport. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                });
+            }
+            
+            // Scroll animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 50) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkFade);
+            checkFade();
+        });
+    </script>
+</body>
+</html>

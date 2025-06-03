@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRACE Transport</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary: #E30613;
+            --dark: #1A1A1A;
+            --light: #FFFFFF;
+            --gray: #F5F5F5;
+            --gray-dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Racing Sans One', cursive;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--dark);
+            color: var(--light);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            z-index: 1;
+        }
+        
+        .hero-logo {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto 30px;
+            animation: fadeInDown 1.2s ease-out;
+        }
+        
+        .hero-logo img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+        
+        .hero .btn {
+            animation: fadeIn 1s ease-out 0.9s forwards;
+            opacity: 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #c00510;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(227, 6, 19, 0.3);
+        }
+        
+        .btn-light {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        .btn-light:hover {
+            background-color: #e6e6e6;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        section.bg-gray {
+            background-color: var(--gray);
+        }
+        
+        section.bg-dark {
+            background-color: var(--dark);
+            color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+        }
+        
+        .section-title .underline {
+            height: 4px;
+            width: 100px;
+            background-color: var(--primary);
+            margin: 0 auto;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .about-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .qualification-badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .qualification-badge:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 0;
+            text-align: center;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-icon img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        .service-content a {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .service-content a:hover {
+            text-decoration: underline;
+            transform: translateX(5px);
+        }
+        
+        /* Geographic Section */
+        .geo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .geo-card {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .geo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* CTA Section */
+        .cta {
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-bottom: 30px;
+            }
+            
+            .about-image img {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.png" alt="MRACE Transport Logo">
+                    <h1>MRACE Transport</h1>
+                </div>
+                <button class="nav-toggle">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="prestations.html">Prestations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="devis.html">Devis</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="logo.png" alt="MRACE Transport Logo">
+            </div>
+            <h1 class="fade-in">Expert en transport événementiel sportif</h1>
+            <p class="fade-in delay-1">Chauffeur poids lourd freelance spécialisé dans le sport automobile</p>
+            <div class="fade-in delay-2">
+                <a href="prestations.html" class="btn">Découvrir mes services</a>
+                <a href="devis.html" class="btn btn-light">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about bg-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <img src="logo.png" alt="Mathieu Lasson - MRACE Transport">
+                </div>
+                <div class="about-text">
+                    <h3 class="fade-in">Mathieu Lasson</h3>
+                    <p class="fade-in delay-1">Chauffeur poids lourd freelance spécialisé dans l'événementiel sportif, je mets mon expertise au service des équipes et organisateurs d'événements de sport automobile.</p>
+                    <p class="fade-in delay-2">Avec une solide expérience dans le transport, le montage/démontage de structures et l'assistance au monitorat, je propose des services complets pour répondre à tous vos besoins logistiques.</p>
+                    <div class="fade-in delay-3">
+                        <h4>Qualifications</h4>
+                        <span class="qualification-badge">BPJEPS Sport Automobile</span>
+                        <span class="qualification-badge">Permis A</span>
+                        <span class="qualification-badge">Permis B</span>
+                        <span class="qualification-badge">Permis C</span>
+                        <span class="qualification-badge">Permis CE</span>
+                        <span class="qualification-badge">CACES Grue Auxiliaire</span>
+                        <span class="qualification-badge">ADR Citerne Étendue</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes Services</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <img src="images/transport.jpg" alt="Transport événementiel">
+                    </div>
+                    <div class="service-content">
+                        <h3>Transport événementiel</h3>
+                        <p>Conduite de poids lourds pour les événements sportifs automobiles, transport de matériel et d'équipements sur les circuits.</p>
+                        <a href="prestations.html#transport">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <img src="images/montage.jpg" alt="Montage/Démontage">
+                    </div>
+                    <div class="service-content">
+                        <h3>Montage/Démontage</h3>
+                        <p>Installation et démontage de structures pour événements sportifs, stands, paddocks et équipements de course.</p>
+                        <a href="prestations.html#montage">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="service-card fade-in delay-2">
+                    <div class="service-icon">
+                        <img src="images/monitorat.jpg" alt="Assistance Monitorat">
+                    </div>
+                    <div class="service-content">
+                        <h3>Assistance Monitorat</h3>
+                        <p>Assistance technique et logistique pour les moniteurs de sport automobile grâce à ma qualification BPJEPS Sport Automobile.</p>
+                        <a href="prestations.html#monitorat">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="other-services bg-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Autres Prestations</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <img src="images/grue.jpg" alt="CACES Grue Auxiliaire">
+                    </div>
+                    <div class="service-content">
+                        <h3>CACES Grue Auxiliaire</h3>
+                        <p>Certifié pour l'utilisation de grues auxiliaires, je propose des services de manutention spécialisée pour vos événements et besoins logistiques.</p>
+                        <ul>
+                            <li>Chargement/déchargement sécurisé</li>
+                            <li>Manipulation d'équipements lourds</li>
+                            <li>Installation précise de structures</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <img src="images/adr.jpg" alt="ADR Citerne Étendue">
+                    </div>
+                    <div class="service-content">
+                        <h3>ADR Citerne Étendue</h3>
+                        <p>Titulaire de l'ADR citerne étendue incluant les produits pétroliers, je suis habilité à transporter des matières dangereuses en toute sécurité.</p>
+                        <ul>
+                            <li>Transport de carburants</li>
+                            <li>Gestion des produits dangereux</li>
+                            <li>Respect des normes de sécurité</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="geographic bg-dark">
+        <div class="container">
+            <div class="section-title">
+                <h2>Disponibilité Géographique</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="geo-grid">
+                <div class="geo-card fade-in">
+                    <h3>France</h3>
+                    <p>Disponible sur l'ensemble du territoire français pour tous vos événements sportifs.</p>
+                </div>
+                <div class="geo-card fade-in delay-1">
+                    <h3>Europe</h3>
+                    <p>Déplacements dans toute l'Europe pour les compétitions et événements internationaux.</p>
+                </div>
+                <div class="geo-card fade-in delay-2">
+                    <h3>International</h3>
+                    <p>Possibilité d'intervention à l'international selon vos besoins spécifiques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2 class="fade-in">Prêt à collaborer ?</h2>
+            <p class="fade-in delay-1">Contactez-moi dès maintenant pour discuter de vos besoins en transport événementiel sportif ou demandez un devis personnalisé.</p>
+            <div class="cta-buttons fade-in delay-2">
+                <a href="contact.html" class="btn">Me contacter</a>
+                <a href="devis.html" class="btn btn-light">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MRACE Transport</h3>
+                    <p>Chauffeur poids lourd freelance spécialisé dans l'événementiel sportif automobile.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Mathieu Lasson</p>
+                    <p>Tél: 07 66 47 42 39</p>
+                    <p>Email: Mathieulasson@mracetransport.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="prestations.html">Prestations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="devis.html">Demande de devis</a></li>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MRACE Transport. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                });
+            }
+            
+            // Scroll animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 50) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkFade);
+            checkFade();
+        });
+    </script>
+</body>
+</html>

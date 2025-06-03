@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - MRACE Transport</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="modern-style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("-fojXBCOifv3oqmQi");
+        })();
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.png" alt="MRACE Transport Logo">
+                    <h1>MRACE Transport</h1>
+                </div>
+                <button class="nav-toggle">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="prestations.html">Prestations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="devis.html">Devis</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact</h2>
+                <div class="underline"></div>
+                <p>Besoin d'informations ? N'hésitez pas à me contacter.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-form fade-in">
+                    <div class="form-container">
+                        <div class="form-header">
+                            <h3>Envoyez-moi un message</h3>
+                            <p>Je vous répondrai dans les plus brefs délais</p>
+                        </div>
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name"><i class="fas fa-user"></i> Nom</label>
+                                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                                    <input type="email" id="email" name="email" placeholder="Votre email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject"><i class="fas fa-tag"></i> Sujet</label>
+                                <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message"><i class="fas fa-comment-alt"></i> Message</label>
+                                <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy">J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande.</label>
+                            </div>
+                            <button type="submit" class="btn" id="submitBtn">
+                                <i class="fas fa-paper-plane"></i> Envoyer
+                            </button>
+                            <div id="formStatus" class="form-status"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="contact-info-container fade-in delay-1">
+                    <div class="contact-info">
+                        <h3>Coordonnées</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Téléphone</h4>
+                                <p>07 66 47 42 39</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>Mathieulasson@mracetransport.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Société</h4>
+                                <p>MRACE Transport</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Zone d'intervention</h4>
+                                <p>France, Europe et International</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Services</h4>
+                                <p>Transport événementiel, Montage/Démontage, Assistance Monitorat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MRACE Transport</h3>
+                    <p>Chauffeur poids lourd freelance spécialisé dans l'événementiel sportif automobile.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Mathieu Lasson</p>
+                    <p>Tél: 07 66 47 42 39</p>
+                    <p>Email: Mathieulasson@mracetransport.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="prestations.html">Prestations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="devis.html">Demande de devis</a></li>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MRACE Transport. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                });
+            }
+            
+            // Scroll animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 50) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkFade);
+            checkFade();
+            
+            // Contact form with EmailJS
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading state
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = 'Envoi en cours... <span class="loading"></span>';
+                    submitBtn.disabled = true;
+                    
+                    // Prepare template parameters
+                    const templateParams = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value
+                    };
+                    
+                    // Send email using EmailJS
+                    emailjs.send('service_yehfv0c', 'template_9kx0o7w', templateParams)
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            formStatus.textContent = 'Votre message a été envoyé avec succès. Je vous recontacterai dans les plus brefs délais.';
+                            formStatus.className = 'form-status success';
+                            contactForm.reset();
+                            
+                            // Reset button state
+                            submitBtn.innerHTML = originalBtnText;
+                            submitBtn.disabled = false;
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            formStatus.textContent = 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou me contacter directement par téléphone.';
+                            formStatus.className = 'form-status error';
+                            
+                            // Reset button state
+                            submitBtn.innerHTML = originalBtnText;
+                            submitBtn.disabled = false;
+                        });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
